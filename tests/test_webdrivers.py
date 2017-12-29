@@ -15,6 +15,7 @@ from browser import Browser
 class test_webdrivers(TestCase):
 
     def test_get(self):
+        
         with open('config.js','r') as f:
             c = f.read()
         j = json.loads(c) 
