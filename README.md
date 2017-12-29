@@ -14,10 +14,7 @@ with Browser(browser,executable) as b:
 
 # Installation
 ## Installing webdrivers for Selenium
-==========
 Download the webdriver of the browser you want to use:
-
-- Firefox: https://github.com/mozilla/geckodriver/releases
 - Chrome: https://sites.google.com/a/chromium.org/chromedriver/downloads
 - PhantomJS: http://phantomjs.org/download.html
 
