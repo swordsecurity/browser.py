@@ -5,14 +5,13 @@ from selenium import webdriver
 
 class Chrome():
 
-    def __init__(self,executable,verify=True):
-        self.driver = None
-        self.load_chrome(executable,verify)                
-
-    def load_chrome(self,executable,verify):
+    def __init__(self,executable,verify=True,disable_extensions=True,disable_xss_auditor=False):
         args = webdriver.ChromeOptions()
-        args.add_argument('--disable-extensions')
-        args.add_argument('--disable-xss-auditor')
+
+        if disable_extensions:
+            args.add_argument('--disable-extensions')
+        if disable_xss_auditor:
+            args.add_argument('--disable-xss-auditor')
         if verify == False:
             args.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
 
@@ -27,10 +26,6 @@ class Chrome():
 class PhantomJS():
 
     def __init__(self,executable,verify=True):
-        self.driver = None
-        self.load_phantomjs(executable,verify)                
-
-    def load_phantomjs(self,executable,verify):
         args = []
         if verify == False:
             args = ['--ignore-ssl-errors=true', '--ssl-protocol=any']
