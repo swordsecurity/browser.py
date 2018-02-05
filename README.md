@@ -2,15 +2,15 @@
 
 Behold the power of browser.py:
 ```
-from browser import Browser
-browser = 'chrome'
-executable = '../../selenium-drivers/chromedriver'
-with Browser(browser,executable) as b:
+from browser import Chrome
+with Chrome('../../selenium-drivers/chromedriver) as b:
      b.get('https://httpbin.org/get')
      print b.page_source
-
+from browser import PhantomJS
+with PhantomJS('../../selenium-drivers/chromedriver) as b:
+     b.get('https://httpbin.org/get')
+     print b.page_source
 ```
-
 
 # Installation
 ## Installing webdrivers for Selenium
