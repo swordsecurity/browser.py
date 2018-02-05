@@ -22,3 +22,7 @@ Download the webdriver of the browser you want to use:
 - PhantomJS: http://phantomjs.org/download.html
 
 In the example above I've created a selenium-drivers folder in my home directory and copied the drivers in there.
+
+Documentation of Selenium: http://selenium-python.readthedocs.io/api.html
+
+
