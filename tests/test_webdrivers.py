@@ -9,7 +9,7 @@ sys.path.append(dirname(dirname(abspath(__file__))))
 from unittest import TestCase
 from unittest import main
 
-from browser import Browser
+from browser import Chrome,PhantomJS
 
 
 class test_webdrivers(TestCase):
@@ -25,10 +25,19 @@ class test_webdrivers(TestCase):
                 executable = browser_config[browser]['executable']
                 verify = browser_config[browser]['verify']
                 print(executable,verify)
-                with Browser(browser,executable,verify) as b:
-                    print("Testing %s with executable %s and verify %s" % (browser,executable,verify))
-                    b.get('https://httpbin.org/get')
-#                    time.sleep(2) 
+
+
+                if browser == 'chrome':
+                    with Chrome(executable,verify) as b:
+                        print("Testing %s with executable %s and verify %s" % (browser,executable,verify))
+                        b.get('https://httpbin.org/get')
+                
+                elif browser == 'phantomjs':
+                    with PhantomJS(executable,verify) as b:
+                        print("Testing %s with executable %s and verify %s" % (browser,executable,verify))
+                        b.get('https://httpbin.org/get')
+                else: raise Exception('Unknown browser %s' % browser)
+
                     
                 
             
