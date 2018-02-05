@@ -2,10 +2,13 @@
 
 Behold the power of browser.py:
 ```
+# Print page source with Google Chrome
 from browser import Chrome
 with Chrome('../../selenium-drivers/chromedriver) as b:
      b.get('https://httpbin.org/get')
      print b.page_source
+
+# Print page source with PhantomJS
 from browser import PhantomJS
 with PhantomJS('../../selenium-drivers/chromedriver) as b:
      b.get('https://httpbin.org/get')
