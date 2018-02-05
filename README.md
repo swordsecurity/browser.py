@@ -10,7 +10,7 @@ with Chrome('../../selenium-drivers/chromedriver) as b:
 
 # Print page source with PhantomJS
 from browser import PhantomJS
-with PhantomJS('../../selenium-drivers/chromedriver) as b:
+with PhantomJS('../../selenium-drivers/phantomjs) as b:
      b.get('https://httpbin.org/get')
      print b.page_source
 ```
