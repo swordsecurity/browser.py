@@ -4,7 +4,7 @@ from selenium import webdriver
 
 class Chrome():
 
-    def __init__(self,executable,verify=True,disable_extensions=True,disable_xss_auditor=False):
+    def __init__(self,executable,verify=True,disable_extensions=False,disable_xss_auditor=False):
         args = webdriver.chrome.options.Options()
 
         if disable_extensions:
