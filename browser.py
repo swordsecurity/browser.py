@@ -1,12 +1,11 @@
-#!/usr/bin/python3
-
+import sys
 import os
 from selenium import webdriver
 
 class Chrome():
 
     def __init__(self,executable,verify=True,disable_extensions=True,disable_xss_auditor=False):
-        args = webdriver.ChromeOptions()
+        args = webdriver.chrome.options.Options()
 
         if disable_extensions:
             args.add_argument('--disable-extensions')
@@ -15,7 +14,11 @@ class Chrome():
         if verify == False:
             args.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
 
-        self.driver = webdriver.Chrome(executable_path=executable,chrome_options=args)
+
+        if sys.version_info >= (3, 0):
+            self.driver = webdriver.Chrome(executable_path=executable,options=args)
+        else:        
+            self.driver = webdriver.Chrome(executable_path=executable,chrome_options=args)
 
     def __enter__(self):
         return self.driver
